@@ -1,6 +1,6 @@
 {
     "name": "PICK_SROIE",
-    "run_id":"ep_1-30",
+    "run_id":"ep_1-15",
 
     "distributed":false,
     "local_world_size":1,
@@ -116,7 +116,7 @@
     },
 
     "trainer": {
-        "epochs": 30,
+        "epochs": 15,
         "gl_loss_lambda": 0.01,
         "log_step_interval": 10,
         "val_step_interval": 50,
