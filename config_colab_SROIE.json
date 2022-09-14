@@ -1,6 +1,6 @@
 {
-    "name": "PICK_Default",
-    "run_id":"test",
+    "name": "PICK_SORIE",
+    "run_id":"ep_1-30",
 
     "distributed":false,
     "local_world_size":1,
