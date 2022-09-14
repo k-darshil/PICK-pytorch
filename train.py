@@ -82,6 +82,8 @@ def entry_point(config: ConfigParser):
 
     local_world_size = config['local_world_size']
 
+    print(local_world_size)
+    print(config['distributed'])
     # check distributed environment cfgs
     if config['distributed']:  # distributed gpu mode
         # check gpu available
@@ -147,8 +149,8 @@ if __name__ == '__main__':
                    help='batch size (default: 2)'),
         # CustomArgs(['--ng', '--n_gpu'], default=2, type=int, target='n_gpu',
         #            help='num of gpu (default: 2)'),
-        CustomArgs(['-dist', '--distributed'], default='true', type=str, target='distributed',
-                   help='run distributed training. (true or false, default: true)'),
+        CustomArgs(['-dist', '--distributed'], default='false', type=str, target='distributed',
+                   help='run distributed training. (true or false, default: false)'),
         CustomArgs(['--local_world_size'], default=1, type=int, target='local_world_size',
                    help='the number of processes running on each node, this is passed in explicitly '
                         'and is typically either $1$ or the number of GPUs per node. (default: 1)'),
@@ -158,5 +160,8 @@ if __name__ == '__main__':
 
     ]
     config = ConfigParser.from_args(args, options)
+    print(config['distributed'])
+    print(type(config['distributed']))
+    print('*'*10)
     # The main entry point is called directly without using subprocess, call by torch.distributed.launch.py
     entry_point(config)

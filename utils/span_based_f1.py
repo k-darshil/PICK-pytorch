@@ -137,9 +137,9 @@ class SpanBasedF1Measure(Metric):
         if mask is None:
             mask = torch.ones_like(gold_labels)
 
-        predictions, gold_labels, mask, prediction_map = self.detach_tensors(predictions,
-                                                                             gold_labels,
-                                                                             mask, prediction_map)
+        # predictions, gold_labels, mask, prediction_map = self.detach_tensors(predictions,
+        #                                                                      gold_labels,
+        #                                                                      mask, prediction_map)
         num_classes = predictions.size(-1)
         if (gold_labels >= num_classes).any():
             raise ConfigurationError("A gold label passed to SpanBasedF1Measure contains an "

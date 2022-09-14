@@ -2,8 +2,8 @@
     "name": "PICK_Default",
     "run_id":"test",
 
-    "distributed":true,
-    "local_world_size":4,
+    "distributed":false,
+    "local_world_size":1,
     "local_rank":-1,
 
     "model_arch": {
@@ -11,14 +11,14 @@
         "args": {
             "embedding_kwargs":{
                 "num_embeddings": -1,
-                "embedding_dim": 512
+                "embedding_dim": 64
             },
             "encoder_kwargs":{
                 "char_embedding_dim":-1,
-                "out_dim": 512,
+                "out_dim": 64,
                 "nheaders": 4,
                 "nlayers": 3,
-                "feedforward_dim": 1024,
+                "feedforward_dim": 128,
                 "dropout": 0.1,
                 "image_encoder": "resnet50",
                 "roi_pooling_mode": "roi_align",
@@ -29,13 +29,13 @@
                 "out_dim":-1,
                 "eta": 1,
                 "gamma": 1,
-                "learning_dim": 128,
+                "learning_dim": 64,
                 "num_layers": 2
             },
             "decoder_kwargs":{
                 "bilstm_kwargs":{
                     "input_size": -1,
-                     "hidden_size": 512,
+                     "hidden_size": 64,
                      "num_layers": 2,
                      "dropout": 0.1,
                      "bidirectional": true,
@@ -57,7 +57,7 @@
     "train_dataset": {
         "type": "PICKDataset",
         "args": {
-            "files_name":"/home/Wen/data/code/PICK/PICK-pytorch/data/data_examples_root/train_samples_list.csv",
+            "files_name":"/mnt/c/Users/darsh/Desktop/learning/KVP/train_dataset/train_samples_list.csv",
             "boxes_and_transcripts_folder":"boxes_and_transcripts",
             "images_folder":"images",
             "entities_folder":"entities",
@@ -69,7 +69,7 @@
     "validation_dataset": {
         "type": "PICKDataset",
         "args": {
-            "files_name":"/home/Wen/data/code/PICK/PICK-pytorch/data/data_examples_root/train_samples_list.csv",
+            "files_name":"/mnt/c/Users/darsh/Desktop/learning/KVP/test_dataset/test_samples_list.csv",
             "boxes_and_transcripts_folder":"boxes_and_transcripts",
             "images_folder":"images",
             "entities_folder":"entities",
@@ -116,7 +116,7 @@
     },
 
     "trainer": {
-        "epochs": 100,
+        "epochs": 2,
         "gl_loss_lambda": 0.01,
         "log_step_interval": 10,
         "val_step_interval": 50,

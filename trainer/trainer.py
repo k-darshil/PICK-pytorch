@@ -128,6 +128,7 @@ class Trainer:
         not_improved_count = 0
         for epoch in range(self.start_epoch, self.epochs + 1):
 
+            print('\n\nepoch started', epoch)
             # ensure distribute worker sample different data,
             # set different random seed by passing epoch to sampler
             if self.distributed:
@@ -142,6 +143,11 @@ class Trainer:
                 val_res = ''
             # every epoch log information
             self.logger_info('[Epoch Validation] Epoch:[{}/{}] Total Loss: {:.6f} '
+                             'GL_Loss: {:.6f} CRF_Loss: {:.6f} \n{}'.
+                             format(epoch, self.epochs, result_dict['loss'],
+                                    result_dict['gl_loss'] * self.gl_loss_lambda,
+                                    result_dict['crf_loss'], val_res))
+            print('[Epoch Validation] Epoch:[{}/{}] Total Loss: {:.6f} '
                              'GL_Loss: {:.6f} CRF_Loss: {:.6f} \n{}'.
                              format(epoch, self.epochs, result_dict['loss'],
                                     result_dict['gl_loss'] * self.gl_loss_lambda,
