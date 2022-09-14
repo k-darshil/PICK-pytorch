@@ -128,7 +128,8 @@ def entry_point(config: ConfigParser):
     main(config, local_master, logger if local_master else None)
 
     # tear down the process group
-    dist.destroy_process_group()
+    if config['distributed']:
+        dist.destroy_process_group()
 
 
 if __name__ == '__main__':
