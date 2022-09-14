@@ -57,7 +57,7 @@
     "train_dataset": {
         "type": "PICKDataset",
         "args": {
-            "files_name":"/content/gdrive/My Drive/SROIE_PICK_DATA_CONERSION/preprocessed_SROIE/train_dataset/train_samples_list.csv",
+            "files_name":"/content/gdrive/My Drive/SROIE_PICK_DATA_CONVERSION/preprocessed_SROIE/train_dataset/train_samples_list.csv",
             "boxes_and_transcripts_folder":"boxes_and_transcripts",
             "images_folder":"images",
             "entities_folder":"entities",
@@ -69,7 +69,7 @@
     "validation_dataset": {
         "type": "PICKDataset",
         "args": {
-            "files_name":"/content/gdrive/My Drive/SROIE_PICK_DATA_CONERSION/preprocessed_SROIE/test_dataset/test_samples_list.csv",
+            "files_name":"/content/gdrive/My Drive/SROIE_PICK_DATA_CONVERSION/preprocessed_SROIE/test_dataset/test_samples_list.csv",
             "boxes_and_transcripts_folder":"boxes_and_transcripts",
             "images_folder":"images",
             "entities_folder":"entities",
