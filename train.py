@@ -21,6 +21,9 @@ from trainer import Trainer
 import torch.nn as nn
 import torch.optim as optim
 
+import warnings
+warnings.filterwarnings("ignore")
+
 # fix random seeds for reproducibility
 SEED = 123
 torch.manual_seed(SEED)
